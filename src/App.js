@@ -1,25 +1,36 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
 
+
 function App() {
+
+
+  const [disabled, setDisabled] = useState(true)
+  const [inputValue, setInputValue] = useState("")
+  const [inputValue1, setInputValue1] = useState("")
+
+  useEffect(() => {
+
+    if((inputValue.length >= 3) && (inputValue1.length >= 6)){
+      setDisabled(false)
+    } else{ 
+      setDisabled(true)
+    }
+  }, [inputValue, inputValue1])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+
+      <input onChange={(e) =>
+         setInputValue(e.target.value)} />
+         
+      <input onChange={(e) =>
+         setInputValue1(e.target.value)} />
+
+      <button disabled={disabled}> Go</button>
+      
+    </>
+  )
 }
 
 export default App;
