@@ -22,10 +22,12 @@ function App() {
     <>
 
       <input onChange={(e) =>
-         setInputValue(e.target.value)} />
-         
+         setInputValue(e.target.value)} 
+         placeholder='Name' />
+
       <input onChange={(e) =>
-         setInputValue1(e.target.value)} />
+         setInputValue1(e.target.value)}
+         placeholder='Password' />
 
       <button disabled={disabled}> Go</button>
       
